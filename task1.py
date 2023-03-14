@@ -13,20 +13,39 @@
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да    
 #     **Вывод:** Парам пам-пам  
 
-stih = input().lower().split()
-count = 0
-for i in stih[0]:
-    if i in 'аеёиоуэыюя':
-        count += 1
-        
+# # раз решение        
+# def poem_rhythm(poem):
+#     count = 0
+#     for i in stih[0]:
+#         if i in 'аеёиоуэыюя':
+#             count += 1
+#     for i in range(1, len(stih)):
+#         count_i = 0
+#         for j in stih[i]:
+#             if j in 'аеёиоуэыюя':
+#                 count_i += 1
+#         if count_i != count:
+#             return False
+#     else:
+#         return True
 
-for i in range(1, len(stih)):
-    count_i = 0
-    for j in stih[i]:
-        if j in 'аеёиоуэыюя':
-            count_i += 1
-    if count_i != count:
-        print('Пам парам')
-        break
-else:
+
+# stih = input().lower().split()
+# if poem_rhythm(stih):
+#     print('Парам пам-пам')
+# else:
+#     print('Пам парам')
+
+
+# два решение
+
+def poem_rhythm(poem):
+    return (len(set(map(lambda x: sum(1 for i in x if i in 'аеёиоуэыюя'), poem))) == 1)
+
+
+
+stih = input().lower().split()
+if poem_rhythm(stih):
     print('Парам пам-пам')
+else:
+    print('Пам парам')
